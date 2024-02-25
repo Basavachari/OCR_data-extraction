@@ -1,0 +1,6 @@
+ocr-nanonets-wrapper
+os
+json
+cv2
+numpy
+pandas

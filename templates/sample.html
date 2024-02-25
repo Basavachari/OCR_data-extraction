@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Data Extraction Application</title>
+
+    <style>
+        /* Basic styling for layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Container styles */
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+
+        /* Top div styles */
+        .top-div {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .top-div h2 {
+            margin-top: 0;
+        }
+        
+        .top-div input[type="file"] {
+            margin-bottom: 10px;
+        }
+        
+        .top-div button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .top-div button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Bottom row divs */
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            width: 100%;
+        }
+
+        /* Left div styles */
+        .left-div {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-right: 10px;
+        }
+
+        /* Right div styles */
+        .right-div {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-left: 10px;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top-div">
+            <h2>Upload Image</h2>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        <div class="bottom-row">
+            <!-- Left div for extracted data display -->
+            <div class="left-div">
+                <h2>Extracted Data</h2>
+                <hr>
+                <!-- Display JSON data here -->
+                {% for item in data %}
+                {% if item %}
+                <!-- <p> {{item}}</p> -->
+                {% if 'text' in item %}
+                <p>{{item.text}} </p>
+                {% endif %}
+                {% if 'data' in item %}
+                <table border="1">
+                    {% for row in item.data %}
+                    <tr>
+                        {% for col in row %}
+                        <td>{{ col }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                <!-- Content from backend will be displayed here -->
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
