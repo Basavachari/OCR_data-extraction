@@ -58,7 +58,7 @@ Design and develop a simple web application that allows users to upload a PDF fi
   - The extracted data is processed. This ensures that the data is displayed correctly on the frontend and is easy to read and understand.
   
 ## Sample output
-- ![image](./Output.png)
+![image](./Output.png)
 
 ## Conclusion
 - The project aims to extract data from images and PDF files and display the extracted data on the frontend using Flask. The extracted data is processed and cleaned to ensure that it is displayed correctly on the frontend. The project leverages the power of optical character recognition (OCR) to extract text data from images and PDF files, making it easy to process and display the extracted data on the frontend using Flask.
