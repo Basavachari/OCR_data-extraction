@@ -1,6 +1,8 @@
 # Data Extraction from Image/PDF and Display on Frontend using Flask
 
 This project aims to extract data from images and PDF files and display the extracted data on the frontend using Flask.
+# Application Demo
+[OCR-Data-Extraction](https://ocr-model.azurewebsites.net/)
 
 ## Table of Contents
 - [Data Extraction from Image/PDF and Display on Frontend using Flask](#data-extraction-from-imagepdf-and-display-on-frontend-using-flask)
