@@ -1,6 +1,5 @@
 ocr-nanonets-wrapper
-os
-json
-cv2
+opencv-python-headless
 numpy
 pandas
+flask

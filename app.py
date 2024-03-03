@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import os
 from script import process_image  
-import json
+
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

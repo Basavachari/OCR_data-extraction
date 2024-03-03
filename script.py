@@ -6,11 +6,9 @@ model = NANONETSOCR()
 model.set_token('5964bc42-d39f-11ee-b890-ee231041c3b2')
 import os
 import json
-import csv
 import cv2
 import numpy as np
 import pandas as pd
-import re
 
 def get_tables(filename):
   pred_json = model.convert_to_tables(filename)
@@ -38,7 +36,7 @@ def get_tables(filename):
   return tables
 def get_lines(filename):
   pred_json = model.convert_to_prediction(filename)
-  print(json.dumps(pred_json, indent=2))
+  # print(json.dumps(pred_json, indent=2))
   df = pd.DataFrame(pred_json['results'][0]['page_data'][0]['words'])
   lines = []
   current_line = []
@@ -48,7 +46,7 @@ def get_lines(filename):
       current_line = []
     current_line.append(row)
   lines.append(current_line)
-  print(lines)
+  # print(lines)
   line_list = []
   for line in lines:
     xmin = min(row['xmin'] for row in line)
@@ -65,7 +63,6 @@ def get_lines(filename):
       'ymax' : ymax
     }
     line_list.append(row_dict)
-  # print(pd.DataFrame(line_list))
   return line_list
 def crop_image(image, xmin, ymin, xmax, ymax):
     cropped_image = image[ymin:ymax, xmin:xmax]
@@ -112,8 +109,7 @@ def process_image(image_path):
     
     # Detect lines on the masked image
     text_lines = get_lines(modified_image_path)
-    # print(text_lines)
-    # Combine data
+
     combined_data = combine_data(text_lines, table_boxes )
   
 
