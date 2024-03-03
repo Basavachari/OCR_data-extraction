@@ -34,7 +34,7 @@ Design and develop a simple web application that allows users to upload a PDF fi
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/Basavachari/OCR_data-extraction
     ```
 2. Install the required packages:
    
